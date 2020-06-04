@@ -68,8 +68,14 @@ export NUGET_PACKAGES="${CACHE_DIR}/nuget/cache"
 info "publish ${PROJECT_FILE} for ${BUILD_CONFIGURATION}"
 dotnet publish $PROJECT_FILE --output ${BUILD_DIR}/heroku_output --configuration ${BUILD_CONFIGURATION} --runtime linux-x64
 
-echo "$HOME/heroku_output"
-ls -lah $HOME/heroku_output
+topic "ls -lah \$HOME"
+ls -lah $HOME
+
+topic "ls -lah \$BUILD_DIR"
+ls -lah $BUILD_DIR
+
+topic "ls -lah \$BUILD_DIR/heroku_output"
+ls -lah $BUILD_DIR/heroku_output
 
 if [ -f ${BUILD_DIR}/Procfile ]; then
 	topic "WARNING"
